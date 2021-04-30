@@ -1,0 +1,9 @@
+% bibentry template for lsst.bib in https://github.com/lsst/lsst-texmf/blob/master/texmf/bibtex/bib/lsst.bib
+
+@DocuShare{ITTN-045,
+   author = { Diego Tapia },
+    title = {Cerro Pachon IT Services Request for Access},
+     year = 2021,
+    month = Apr,
+   handle = {ITTN-045},
+      url = {https://ittn-045.lsst.io } }
