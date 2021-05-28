@@ -8,19 +8,20 @@
 \usepackage{fancyhdr}
 \usepackage{parcolumns} % <<<<<<----- Required
 \usepackage{lipsum} % <<<<---- Only needed in the example
+\usepackage{hyperref}
 % Local commands go here.
 
 %If you want glossaries
 %\input{aglossary.tex}
 %\makeglossaries
 
-\title{Cerro Pachon IT Services Request for Access}
+\title{Summit Onboarding Procedure}
 
 % Optional subtitle
 % \setDocSubtitle{A subtitle}
 
 \author{%
-Diego Tapia
+Diego Tapia, Cristian Silva
 }
 
 \setDocRef{ITTN-045}
@@ -32,12 +33,14 @@ Diego Tapia
 % \setDocCurator{The Curator of this Document}
 
 \setDocAbstract{%
- This ITTN was created to document the procedure of requesting access to the various IT services located at the summit.
+ This ITTN was created to document the procedure of requesting access to the various services located at the summit.
  
 }
 
 \setDocChangeRecord{%
   \addtohist{1}{2021-04-12}{Unreleased.}{Cristian Silva}
+  \addtohist{2}{2021-05-01}{First Draft}{Diego Tapia}
+  \addtohist{3}{2021-05-27}{Second Draft}{Cristian Silva}
 }
 
 
@@ -47,6 +50,7 @@ Diego Tapia
 \maketitle
 % Frequently for a technote we do not want a title page  uncomment this to remove the title page and changelog.
 % use \mkshorttitle to remove the extra pages
+\include{intro}
 \input{technical.tex}
 % You can also use the \input command to include several content files.
 
