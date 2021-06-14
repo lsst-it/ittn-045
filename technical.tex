@@ -1,6 +1,6 @@
 \section{Requesting an IPA account}
 \label{sec:IPA}
-  
+
   To request an IPA account, it is required for the user to create a Service Request ticket inside the IT User Support Dashboard.
   Please check the example below.
 
@@ -60,7 +60,7 @@ If you have any questions or concerns regarding the services provisioned please 
 
 All  Rubin  Observatory’s  servers  are  set  to  authenticate  through  FreeIPA  and  Asymmetric Cryptography through  Secure  Shell  (ssh),  and all other  mechanisms  are  blocked.  This  means,  all  local accountsand password authentication are not allowed, so once the servers are admitted to IT’s network and infrastructure, all previous local accounts, passwords, permissions, users and groups IDs (uid and gid).
 
-When  a  new user  arrives,  or  a  user  that  does  not  yet  have  credentials, it  is  requested  to  create  a  RIC (Request for IPA Credentials) following the instructions above. 
+When  a  new user  arrives,  or  a  user  that  does  not  yet  have  credentials, it  is  requested  to  create  a  RIC (Request for IPA Credentials) following the instructions above.
 
 Then,  comes  an important part of the process: setting and creation of the Asymmetric Cryptography, also known as public-key cryptography.
 
@@ -71,7 +71,7 @@ Then,  comes  an important part of the process: setting and creation of the Asym
 (1) The user presents its private ssh-key, (2) If the primary IPA Server is reachable (ipa1.ls.lsst.org), the
 Rubin’s Server (Server A) presents the user’s private key to ipa1, (3) The IPA Server checks against the
 common database(among all replicas) if the users exists and matches the private against the stored public
-key; if the user exists, it also checks if the group who it belongs has sufficient privileges to access, (4) The 
+key; if the user exists, it also checks if the group who it belongs has sufficient privileges to access, (4) The
 Server fetches the Database information, (5) The IPA Server either grants or denied access to the User’s
 Laptop to Server A, (10) The permission granted/denied is send to the User’s Laptop.
 If the Primary IPA Server isn’t reachable after timeout, it does the same operation over the failover (red)
@@ -215,19 +215,19 @@ If everything was set correctly, click Set, and you will find yourself in the pr
 \section{Requesting Domain Credentials}
 \label{sec:Domain}
 
-To request Domain Account Credentials, it is required that an Onboarding form is filled out by the manager or supervisor in charge at \href{https://project.lsst.org/onboarding/form}{Onboarding Form}. Once the onboarding form is filled out and submitted with the information requested, IT North will proccess the credentials and will contact the person requesting the access. 
+To request Domain Account Credentials, it is required that an Onboarding form is filled out by the manager or supervisor in charge at \href{https://project.lsst.org/onboarding/form}{Onboarding Form}. Once the onboarding form is filled out and submitted with the information requested, IT North will proccess the credentials and will contact the person requesting the access.
 
-\section{Requesting Nublado Access}
+\section{Access to Nublado, EFD/Chronograph and other SQuaRE services}
 \label{sec:Nublado}
 
-The access to Nublado is controlled by \href{https://github.com}{Github}, hence the user requesting access must have a Github account.
+A number of data services on the summit are operated by the SQuaRE team and are currently authenticated via Github.
+This includes the summit instance of the Science Platform, including the Notebook Aspect, intformally referred to as Nublado.
+It also includes the EFD (Engineering Facilities Database) and its web-based front end (Chronograph)
 
-To request access open a DM ticket in Jira including:
+To gain access to your services you must (a) have a \href{https://github.com}{Github} account and (b) it must belong to the right organisation and team.
 
-\begin{itemize}
-  \item Name
-  \item Email
-  \item Github account
-\end{itemize}
+If are a member of the Telescope \& Site team, you are probably already a member of the Github lsst-ts organisation, and you merely need to check that you are in the summit-access team in that org.
 
-A member of the Square team will grant you access. 
+If you are not, you need to be invited in the rubin-summit organisation and added to the rsp-access team. Ask on the \verb|#com-square| Slack channel to be added to summit-access, mention your Github username and a number of people will be able to add you.
+
+Note: Adding your Github username to your Slack profile is really helpful and saves you from being asked to supply it. To do that, select Edit Profile on Slack and sroll down until you find a field called Github Username.
