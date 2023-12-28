@@ -350,3 +350,66 @@ If are a member of the Telescope \& Site team, you are probably already a member
 If you are not, you need to be invited in the rubin-summit organisation and added to the rsp-access team. Ask on the \verb|#com-square| Slack channel to be added to summit-access, mention your Github username and a number of people will be able to add you.
 
 Note: Adding your Github username to your Slack profile is really helpful and saves you from being asked to supply it. To do that, select Edit Profile on Slack and sroll down until you find a field called Github Username.
+
+\newpage
+\section{Software Deployment - Access and Prerequisites}
+
+1. Follow instructions in \href{https://ittn-045.lsst.io}{ITTN-045}, file an IHS ticket (1 of 3) to request access to IPA, the VPN and the Resources and Bare-Metal Machines for
+
+\begin{itemize}
+	\item[a)] \href{https://obs-controls.lsst.io/System-Testing-Deployments-and-Upgrades/Control-System-Upgrade/Deployment-Activities/tucson-teststand/index.html}{TTS}.
+	\begin{itemize}
+		\item Include access to the ArgoCD Admin and Tucson Teststand (TTS) 1Password vaults in the request.
+	\end{itemize}
+	\item[b)] \href{https://obs-controls.lsst.io/System-Testing-Deployments-and-Upgrades/Control-System-Upgrade/Deployment-Activities/base-teststand/index.html#deployment-activities-bts-resources}{BTS}.
+	\begin{itemize}
+		\item Include access to the ArgoCD Admin and Base Teststand (TTS) 1Password vaults in the request.
+	\end{itemize}
+	\item[c)] \href{https://obs-controls.lsst.io/System-Testing-Deployments-and-Upgrades/Control-System-Upgrade/Deployment-Activities/summit/index.html}{Summit}.
+	\begin{itemize}
+		\item Include access to the ArgoCD Admin and Summit 1Password vaults in the request.
+	\end{itemize}
+\end{itemize}
+
+2. Request for increased privileges.
+
+\begin{itemize}
+	\item[a)] For deployments and system administration, sudo privileges are required.
+	\begin{itemize}
+		\item File an IHS ticket (2 of 3).
+	\end{itemize}
+\end{itemize}
+
+3.) Request access to the following Github Organizations.
+
+\begin{itemize}
+	\item[a)] \href{https://github.com/lsst-it}{lsst-it} (docker-compose-ops-repo, explicitly).
+	\begin{itemize}
+		\item File and IHS ticket (3 of 3).
+	\end{itemize}
+	\item[b)] \href{https://github.com/lsst-ts}{lsst-ts} (argocd-csc scripts).
+	\begin{itemize}
+		\item Submit and Email or Slack request to Rob Bovill (rbovill@lsst.org).
+	\end{itemize}
+\end{itemize}
+
+\newpage
+
+4.) Access to kubectl and argocd CLI tool.
+
+\begin{itemize}
+	\item[a)] Install to local machine.
+	\begin{itemize}
+		\item \href{https://kubernetes.io/docs/tasks/tools/#kubectl}{kubectl}
+		\begin{itemize}
+			\item \href{https://obs-controls.lsst.io/System-Testing-Deployments-and-Upgrades/Control-System-Upgrade/Deployment-Activities/tucson-teststand/index.html#resources}{TTS Configuration}
+			\item \href{https://obs-controls.lsst.io/System-Testing-Deployments-and-Upgrades/Control-System-Upgrade/Deployment-Activities/base-teststand/index.html#deployment-activities-bts-resources}{BTS Configuration}
+			\item \href{https://obs-controls.lsst.io/System-Testing-Deployments-and-Upgrades/Control-System-Upgrade/Deployment-Activities/summit/index.html#resources}{Summit Configuration}
+		\end{itemize}
+		\item \href{https://argo-cd.readthedocs.io/en/stable/cli\_installation/}{argocd}
+		\begin{itemize}
+			\item Checkout the \href{https://github.com/lsst-ts/argocd-csc}{argo-csc} repo, it contains scripts used during the deployment.
+			\item Create the \$HOME/.argocd\_auth file 
+		\end{itemize}
+	\end{itemize}
+\end{itemize}
