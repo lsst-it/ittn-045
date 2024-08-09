@@ -55,6 +55,7 @@ IT User support will receive the request and will proceed with the account creat
 
 If you have any questions or concerns regarding the services provisioned please contact IT User Support at rubinobs-it-las@lsst.org
 
+
 \subsection{Rubin Server Authentication}
 \label{sec:SSH}
 
@@ -143,6 +144,35 @@ Once concluded, you should see something like:
 Now, save both keys into a well-known location. It is recommended (but not needed) to create a folder
 named “ssh” in the user’s home directory, so when asked, you can easily find your keys in
 “/Users/<username>/ssh/”.
+\newpage
+
+The next images will show you how to load the ssh private key in the Pageant app.
+
+\begin{figure}
+  \includegraphics[width=10cm]{Images/example17.png}
+  \centering
+\end{figure}
+\vspace{5 mm}
+
+\begin{figure}
+  \includegraphics[width=10cm]{Images/example18.png}
+  \centering
+\end{figure}
+\vspace{5 mm}
+
+\begin{figure}
+  \includegraphics[width=10cm]{Images/example19.png}
+  \centering
+\end{figure}
+\vspace{5 mm}
+
+\begin{figure}
+  \includegraphics[width=10cm]{Images/example20.png}
+  \centering
+\end{figure}
+\vspace{5 mm}
+
+Once you have your private key loaded in the Pageant app, you need to upload your public ssh key to the jira ticket in order for the IT Team to format the ssh keys.
 
 \newpage
 
@@ -339,17 +369,20 @@ To request Domain Account Credentials, it is required that an Onboarding form is
 \section{Access to Nublado, EFD/Chronograph and other SQuaRE services}
 \label{sec:Nublado}
 
-A number of data services on the summit are operated by the SQuaRE team and are currently authenticated via Github.
-This includes the summit instance of the Science Platform, including the Notebook Aspect, intformally referred to as Nublado.
-It also includes the EFD (Engineering Facilities Database) and its web-based front end (Chronograph)
+To access your services you must first have a VPN account created and use your IPA account to create and generate VPN access. 
 
-To gain access to your services you must (a) have a \href{https://github.com}{Github} account and (b) it must belong to the right organisation and team.
+Please follow the following confluence page: \href{https://confluence.lsstcorp.org/display/IT/Rubin+VPN+user%27s+guide}{VPN Confluence Guide}.
 
-If are a member of the Telescope \& Site team, you are probably already a member of the Github lsst-ts organisation, and you merely need to check that you are in the summit-access team in that org.
+Once you have the VPN account created you must request the necessary permissions on the same ticket as your VPN to access your services, these are the following:
 
-If you are not, you need to be invited in the rubin-summit organisation and added to the rsp-access team. Ask on the \verb|#com-square| Slack channel to be added to summit-access, mention your Github username and a number of people will be able to add you.
+\begin{itemize}
+  \item RSP fo Cerro Pachon
+  \item BTS for La Serena
+  \item DEV for Dev
+  \item TTS for Tucson
+\end{itemize}
 
-Note: Adding your Github username to your Slack profile is really helpful and saves you from being asked to supply it. To do that, select Edit Profile on Slack and sroll down until you find a field called Github Username.
+For security reasons, 2FA must be used to access each individual service, independent from each other. For example, if you need to access RSP you must create a 2FA entry for RSP and to access BTS you will also need to create a separate 2FA that is independent of the RSP entry. This 2FA works with the service called Keycloak. When you log in for the first time to one of these services you will be able to configure the Keycloak 2FA.
 
 \newpage
 \section{Software Deployment - Access and Prerequisites}
