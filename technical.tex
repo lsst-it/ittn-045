@@ -1,7 +1,9 @@
-\section{Requesting an IPA account}
-\label{sec:IPA}
+\section{Onboarding}
+\subsection{Requesting a Summit Account}
+\label{sec:SummitAccount}
 
-  To request an IPA account, it is required for the user to create a Service Request ticket inside the IT User Support Dashboard.
+  To request an Summit account, it is necessary to create a Service Request ticket inside the IT User Support Dashboard. This ticket is usually created by the manager of the user needing the account. 
+
   Please check the example below.
 
   Head over to https://rubinobs.atlassian.net/ and log in with your domain account credentials.
@@ -29,34 +31,105 @@ On the ticket creation window fill out the template using the information provid
 \begin{itemize}
   \item Project: IT Helpdesk Support (IHS)
   \item Issue Type: Service Request
-  \item Summary: IPA Account Creation / VPN Access - "Insert your name here"
+  \item Summary: Onboarding <user>
   \item Component: AAA
-  \item Description: Please use the template provided below.
+  \item Description: <description>
 \end{itemize}
 
-\vspace{10 mm}
+<user>: Name of the user to onboard.
 
-\begin{figure}
-  \includegraphics[width=15cm]{Images/example4.png}
-\end{figure}
+<description>: Use the following template:
 
-\newpage
+\begin{itemize}
+  \item First and Last Name: ......
+  \item SSH Public Key: ......
+  \item Email Address: ......
+  \item Services: list needed services from \hyperref[sec:RubinServices]{Rubin Services}
+\end{itemize}
 
 Once all the information is filled out, select the Create option located at the bottom to create the ticket inside IHS IT Support Dashboard.
 
-\vspace{10 mm}
+ Once the account has been created and the services have been provisioned, the user will be contacted via the email provided in the ticket. The user will then need to change the password of the account created. Instructions to change the password will be sent via email.
 
-\begin{figure}
-  \includegraphics[width=13cm]{Images/example3.png}
-\end{figure}
+If you have any questions or concerns please contact \#devops-team in Rubin Observatory's Slack workspace
+\newpage
+\subsection{Rubin Services}
+\label{sec:RubinServices}
 
-\vspace{10 mm}
-IT User support will receive the request and will proceed with the account creation process. Once the account has been created and the services have been provisioned IT Support will be in contact with you via email to provide you with the account credentials and services you've been granted access too along with the website where you can change your temporary password.
+The following services can be requested:
 
-If you have any questions or concerns regarding the services provisioned please contact IT User Support at rubinobs-it-las@lsst.org
+\begin{itemize}
+  \item RSP for Summit, includes:
+  \begin{itemize}
+    \item Chronograf
+    \item Nublado
+  \end{itemize}
+  \item RSP for La Serena
+  \begin{itemize}
+    \item Chronograf
+    \item Nublado
+  \end{itemize}
+  \item ArgoCD for Summit
+  \item LOVE
+  \item Standard baremetal access for Camera Subsystems (LSSTCam, ComCam, Auxtel)
+  \item Sudo access for Camera Subsystems (LSSTCam, ComCam, Auxtel)
+  \item Kubernetes access for Summit
+  \item Kubernetes access for Base
+  \item Kubernetes access for Tucson
+  \item TTS access
+  \item BTS access
+  \item 1Password vault (vaults must be specified)
+  \item Dev access for TTS, includes
+  \begin{itemize}
+    \item ArgoCD
+    \item K8s
+    \item 1Password vault
+  \end{itemize}
+  \item Dev access for BTS, includes
+  \begin{itemize}
+    \item ArgoCD
+    \item K8s
+    \item 1Password vault
+  \end{itemize}
 
+\end{itemize}
 
-\subsection{Rubin Server Authentication}
+Follow instructions in \href{https://ittn-045.lsst.io}{ITTN-045}, and file a single IHS ticket to request access to the service(s) needed. 
+
+Access to some systems must have prior authorization by systems owners.
+
+For security reasons, 2FA is used in VPN and some services, but they are independent. For example, if you need to access Summit RSP you must create a 2FA entry and to access Base RSP you will also need to create a separate 2FA that is independent of the Summit RSP entry. When you log in for the first time to one of these services you will be able to configure your 2FA token.
+
+Resources details of each site can be found in the following links
+
+\begin{itemize}
+	\item[a)] \href{https://obs-controls.lsst.io/System-Testing-Deployments-and-Upgrades/Control-System-Upgrade/Deployment-Activities/tucson-teststand/index.html}{TTS}.
+	
+	\item[b)] \href{https://obs-controls.lsst.io/System-Testing-Deployments-and-Upgrades/Control-System-Upgrade/Deployment-Activities/base-teststand/index.html#deployment-activities-bts-resources}{BTS}.
+	
+	\item[c)] \href{https://obs-controls.lsst.io/System-Testing-Deployments-and-Upgrades/Control-System-Upgrade/Deployment-Activities/summit/index.html}{Summit}.
+	
+\end{itemize}
+
+\subsection{Access to Github Ogranizations}
+
+\begin{itemize}
+	\item[a)] \href{https://github.com/lsst-it}{lsst-it} (docker-compose-ops-repo, explicitly).
+	\begin{itemize}
+		\item File an IHS ticket
+	\end{itemize}
+	\item[b)] \href{https://github.com/lsst-ts}{lsst-ts} (argocd-csc scripts).
+	\begin{itemize}
+		\item Submit and Email or Slack request to Rob Bovill (rbovill@lsst.org).
+	\end{itemize}
+\end{itemize}
+
+\subsection{Requesting Domain Credentials}
+\label{sec:Domain}
+
+To request Domain Account Credentials, it is required that an Onboarding form is filled out by the manager or supervisor in charge at \href{https://project.lsst.org/onboarding/form}{Onboarding Form}. Once the onboarding form is filled out and submitted with the information requested, IT North will process the credentials and will contact the person requesting the access.
+
+\section{Rubin Server Authentication}
 \label{sec:SSH}
 
 All  Rubin  Observatory’s  servers  are  set  to  authenticate  through  FreeIPA  and  Asymmetric Cryptography through  Secure  Shell  (ssh),  and all other  mechanisms  are  blocked.  This  means,  all  local accountsand password authentication are not allowed, so once the servers are admitted to IT’s network and infrastructure, all previous local accounts, passwords, permissions, users and groups IDs (uid and gid).
@@ -240,13 +313,6 @@ If everything was set correctly, click Set, and you will find yourself in the pr
 
 (1) A “New:key set” should now appear and in order for the changes to take place, (2) click on Save.
 
-\newpage
-
-\section{Requesting Domain Credentials}
-\label{sec:Domain}
-
-To request Domain Account Credentials, it is required that an Onboarding form is filled out by the manager or supervisor in charge at \href{https://project.lsst.org/onboarding/form}{Onboarding Form}. Once the onboarding form is filled out and submitted with the information requested, IT North will process the credentials and will contact the person requesting the access.
-
 \newpage 
 
 \section{Accesing the Rubin Observatory WIFI network}
@@ -359,90 +425,31 @@ To request Domain Account Credentials, it is required that an Onboarding form is
       2.) Select connect, log in with your domain account credentials both username and password. 
     \end{subfigure}
   \end{figure}
- 
-  
-
-
-
-
+   
 \newpage
-\section{Access to Nublado, EFD/Chronograph and other SQuaRE services}
-\label{sec:Nublado}
+\section{Offboarding}
 
-To access your services you must first have a VPN account created and use your IPA account to create and generate VPN access. 
-
-Please follow the following confluence page: \href{https://confluence.lsstcorp.org/display/IT/Rubin+VPN+user%27s+guide}{VPN Confluence Guide}.
-
-Once you have the VPN account created you must request the necessary permissions on the same ticket as your VPN to access your services, these are the following:
+File an IHS ticket with the following information:
 
 \begin{itemize}
-  \item RSP fo Cerro Pachon
-  \item BTS for La Serena
-  \item DEV for Dev
-  \item TTS for Tucson
+  \item Project: IT Helpdesk Support (IHS)
+  \item Issue Type: Service Request
+  \item Summary: Offboarding <user>
+  \item Component: AAA
+  \item Description:
 \end{itemize}
 
-For security reasons, 2FA must be used to access each individual service, independent from each other. For example, if you need to access RSP you must create a 2FA entry for RSP and to access BTS you will also need to create a separate 2FA that is independent of the RSP entry. This 2FA works with the service called Keycloak. When you log in for the first time to one of these services you will be able to configure the Keycloak 2FA.
+<user>: Name of the user to offboard.
 
-\newpage
-\section{Software Deployment - Access and Prerequisites}
+Offboarding tickets must be created by the manager of the user to offboard, and if it's time sensitive, please contact by email or Slack the DevOps manager.
 
-1. Follow instructions in \href{https://ittn-045.lsst.io}{ITTN-045}, file an IHS ticket (1 of 3) to request access to IPA, the VPN and the Resources and Bare-Metal Machines for
+The user will be offboarded from the following services
 
 \begin{itemize}
-	\item[a)] \href{https://obs-controls.lsst.io/System-Testing-Deployments-and-Upgrades/Control-System-Upgrade/Deployment-Activities/tucson-teststand/index.html}{TTS}.
-	\begin{itemize}
-		\item Include access to the ArgoCD Admin and Tucson Teststand (TTS) 1Password vaults in the request.
-	\end{itemize}
-	\item[b)] \href{https://obs-controls.lsst.io/System-Testing-Deployments-and-Upgrades/Control-System-Upgrade/Deployment-Activities/base-teststand/index.html#deployment-activities-bts-resources}{BTS}.
-	\begin{itemize}
-		\item Include access to the ArgoCD Admin and Base Teststand (TTS) 1Password vaults in the request.
-	\end{itemize}
-	\item[c)] \href{https://obs-controls.lsst.io/System-Testing-Deployments-and-Upgrades/Control-System-Upgrade/Deployment-Activities/summit/index.html}{Summit}.
-	\begin{itemize}
-		\item Include access to the ArgoCD Admin and Summit 1Password vaults in the request.
-	\end{itemize}
+  \item Summit Services
+  \item Active Directory
+  \item Slack
+  \item 1Password
+  \item Github
 \end{itemize}
 
-2. Request for increased privileges.
-
-\begin{itemize}
-	\item[a)] For deployments and system administration, sudo privileges are required.
-	\begin{itemize}
-		\item File an IHS ticket (2 of 3).
-	\end{itemize}
-\end{itemize}
-
-3.) Request access to the following Github Organizations.
-
-\begin{itemize}
-	\item[a)] \href{https://github.com/lsst-it}{lsst-it} (docker-compose-ops-repo, explicitly).
-	\begin{itemize}
-		\item File and IHS ticket (3 of 3).
-	\end{itemize}
-	\item[b)] \href{https://github.com/lsst-ts}{lsst-ts} (argocd-csc scripts).
-	\begin{itemize}
-		\item Submit and Email or Slack request to Rob Bovill (rbovill@lsst.org).
-	\end{itemize}
-\end{itemize}
-
-\newpage
-
-4.) Access to kubectl and argocd CLI tool.
-
-\begin{itemize}
-	\item[a)] Install to local machine.
-	\begin{itemize}
-		\item \href{https://kubernetes.io/docs/tasks/tools/#kubectl}{kubectl}
-		\begin{itemize}
-			\item \href{https://obs-controls.lsst.io/System-Testing-Deployments-and-Upgrades/Control-System-Upgrade/Deployment-Activities/tucson-teststand/index.html#resources}{TTS Configuration}
-			\item \href{https://obs-controls.lsst.io/System-Testing-Deployments-and-Upgrades/Control-System-Upgrade/Deployment-Activities/base-teststand/index.html#deployment-activities-bts-resources}{BTS Configuration}
-			\item \href{https://obs-controls.lsst.io/System-Testing-Deployments-and-Upgrades/Control-System-Upgrade/Deployment-Activities/summit/index.html#resources}{Summit Configuration}
-		\end{itemize}
-		\item \href{https://argo-cd.readthedocs.io/en/stable/cli\_installation/}{argocd}
-		\begin{itemize}
-			\item Checkout the \href{https://github.com/lsst-ts/argocd-csc}{argo-csc} repo, it contains scripts used during the deployment.
-			\item Create the \$HOME/.argocd\_auth file 
-		\end{itemize}
-	\end{itemize}
-\end{itemize}

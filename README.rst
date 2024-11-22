@@ -3,9 +3,9 @@
 .. image:: https://github.com/lsst-it/ittn-045/workflows/CI/badge.svg
    :target: https://github.com/lsst-it/ittn-045/actions/
 
-###########################################
-Cerro Pachon IT Services Request for Access
-###########################################
+##########################################
+Rubin Onboarding and Offboarding Procedure
+##########################################
 
 ITTN-045
 ========
