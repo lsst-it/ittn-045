@@ -151,12 +151,12 @@ Laptop to Server A, (10) The permission granted/denied is send to the User’s L
 If the Primary IPA Server isn’t reachable after timeout, it does the same operation over the failover (red)
 Server, following path 6 -> 7 -> 8 -> 9 instead of 2 -> 3 -> 4 -> 5.
 
-\subsubsection{SSH Keys Creation}
+\subsection{SSH Keys Creation}
 \label{sec:SSH:}
 
 Depending on your OS, is the instructions you will need to follow:
 
-\subsubsection{Linux and MacOS}
+\subsection{Linux and MacOS}
 \label{sec:SSH}
 
 First, log into your local machine, then search and open a terminal window. Once there:
@@ -176,7 +176,7 @@ includes that key as well:
 The id rsa file contains your private key, which by no reason must be shared or known by another person, this will not only compromise the integrity of the server but also related user's data, account access etc. On the other hand, the id rsa pub contains the public key, whis is intended to be shared and publicly known.
 
 \newpage
-\subsubsection{Windows OS}
+\subsection{Windows OS}
 \label{sec:SSH}
 
 Windows does not natively have a native ssh mechanism. There are several third-party applications,
@@ -249,7 +249,7 @@ Once you have your private key loaded in the Pageant app, you need to upload you
 
 \newpage
 
-\subsubsection{Add Public Key Into IPA}
+\subsection{Add Public Key Into IPA}
 
 The IPA infrastructure is composed of a master server and several replicas, meaning that it does
 not matter in which one you modified your personal data, it will be propagated over the rest of the nodes.
@@ -452,4 +452,13 @@ The user will be offboarded from the following services
   \item 1Password
   \item Github
 \end{itemize}
+
+\section{Auditing}
+
+Visitors can be provided with temporary accounts, which will have separate records maintained for them. These accounts are scheduled for deactivation on the last day of each month through an automated process.
+
+However, this deactivation can be prevented if the manager responsible for the visitor explicitly overrides the process to exclude the account from the deactivation cycle.
+
+The current list of temporary accounts is available at \href{https://rubinobs.atlassian.net/l/cp/ddeM4LkA}{https://rubinobs.atlassian.net/l/cp/ddeM4LkA}, where managers should also record any overrides.
+
 
